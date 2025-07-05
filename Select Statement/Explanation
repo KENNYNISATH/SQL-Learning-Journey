@@ -1,1 +1,70 @@
+# 📘 SELECT Basics – Line-by-Line SQL Query Explanation
 
+This file provides a **detailed explanation** for each SQL query written in the file `01_SELECT_Basics.sql`. Each query demonstrates a unique concept of the `SELECT` statement, including how to retrieve full data, specific columns, perform calculations, and filter out duplicate rows.
+
+---
+
+## 🔹 Query 1: Select All Columns
+
+````markdown
+```sql
+SELECT * FROM parks_and_recreation.employee_demographics;
+
+---
+
+## 🔹 Query 2: Select Specific Columns + Perform Calculations
+
+````markdown
+```sql
+SELECT first_name, 
+       last_name, 
+       birth_date,
+       age,
+       (age + 10) * 10 + 10 AS modified_age
+FROM parks_and_recreation.employee_demographics;
+```
+
+✅ **What it does:**  
+Selects specific columns (`first_name`, `last_name`, `birth_date`, `age`) from the table  
+and creates a new column by performing a calculation on `age`.
+
+💡 **Calculation Logic:**  
+```text
+(age + 10) * 10 + 10
+```
+- Add 10 to the current age  
+- Multiply the result by 10  
+- Add 10 again  
+This creates a **dynamic transformation** of the age field.
+
+🧠 **Why use this?**  
+- Forecast future values (like projected age).  
+- Convert or scale values (e.g., tax, discounts, scores).  
+- Apply business logic directly in your query.
+
+📌 **Real-world use cases:**  
+- Calculating future salaries or growth predictions  
+- Currency/unit conversions  
+- Applying formulas directly in reports
+```sql
+SELECT DISTINCT first_name, gender 
+FROM parks_and_recreation.employee_demographics;
+```
+
+✅ **What it does:**  
+Returns only **unique combinations** of `first_name` and `gender`.  
+Duplicates are automatically removed from the output.
+
+🧠 **How DISTINCT works:**  
+It compares **all selected columns together** — in this case, both `first_name` and `gender`.  
+Only unique rows for this pair will be returned.
+
+🧩 **Why is this helpful?**  
+- Avoids repeated values in reports  
+- Useful for clean dropdown lists and filters  
+- Helps summarize and group unique combinations
+
+📌 **Examples:**  
+- List of unique departments, roles, or categories  
+- Get unique locations or countries from customer data  
+- Filter duplicates in survey or feedback forms
