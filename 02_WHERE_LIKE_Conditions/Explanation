@@ -1,0 +1,171 @@
+# 📘 WHERE & LIKE Conditions – Line-by-Line SQL Query Explanation
+
+This file contains detailed explanations of SQL queries using:
+- **WHERE clause**
+- **Logical operators** (`AND`, `OR`, `NOT`)
+- **Pattern matching** with `LIKE`
+
+Each query below is presented in a **separate explanation box**, just like your GitHub rendering style.
+
+---
+
+## 🔹 Query 1: Filter by Exact Match
+
+````
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_salary
+WHERE first_name = 'Leslie';
+✅ What it does:
+Returns all records where first_name is exactly Leslie.
+
+🔍 Why it’s useful:
+
+Simple way to find individual records by name
+
+Common in search features or ID-based lookups
+---
+
+## 🔹 Query 2: Filter Using Numeric Comparison
+
+````
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_salary
+WHERE salary >= 50000;
+```
+
+✅ **What it does:**  
+Fetches employees with salary **greater than or equal to 50000**.
+
+📊 **Use case:**  
+- Filtering high earners  
+- Creating salary band reports
+Query 3: Exclude Records Using !=
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE gender != 'Female';
+```
+
+✅ **What it does:**  
+Returns all records **except those** where gender is `'Female'`.
+
+🚫 **Why this matters:**  
+- Exclude specific categories  
+- Works with `!=` (not equal) or `<>`
+🔹 Query 4: Compare Dates with >
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE birth_date > '1985-01-01';
+```
+
+📅 **What it does:**  
+Finds employees **born after January 1st, 1985**.
+
+🧠 **Why this is useful:**  
+- Age-based filtering  
+- Works with any date column
+🔹 Query 5: Combine Conditions with AND
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE birth_date > '1985-01-01'
+  AND gender != 'Female';
+```
+
+✅ **What it does:**  
+Returns employees who are:
+1. Born after 1985  
+2. Not Female
+
+➕ **AND requires both conditions to be true**
+🔹 Query 6: Use OR with NOT
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE birth_date > '1985-01-01'
+  OR NOT gender = 'Male';
+```
+
+🧠 **What it does:**  
+Returns employees who:
+- Are either born after 1985  
+- Or are **not Male**
+
+🧩 `OR` only needs **one condition** to be true
+🔹 Query 7: Combine AND/OR Using Parentheses
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE (first_name = 'Leslie' AND age = 44)
+   OR age > 55;
+```
+
+🧠 **What it does:**  
+Shows records where:
+- Name is `Leslie` and age is 44  
+- OR if age is more than 55
+
+📝 **Tip:**  
+Use parentheses `()` to **group logic** and avoid confusion
+🔹 Query 8: Pattern Match – Starts With
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE first_name LIKE 'Jer%';
+
+🔡 **What it does:**  
+Finds names starting with `Jer` (like `Jeremy`, `Jerry`)
+
+🧠 `LIKE 'prefix%'` → matches anything that **starts with**
+🔹 Query 9: Pattern Match – Contains
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE first_name LIKE '%an%';
+```
+
+🔎 **What it does:**  
+Finds names **that contain** the substring `an`  
+(e.g., `Brandon`, `Daniel`, `Ananya`)
+
+🧠 `%` means "anything before/after"
+🔹 Query 10: Pattern Match – Fixed Format
+
+
+
+```sql
+SELECT * 
+FROM parks_and_recreation.employee_demographics
+WHERE first_name LIKE 'a___%';
+```
+
+🔠 **What it does:**  
+- Finds names that **start with 'a'**  
+- Followed by **exactly 3 letters**, then anything  
+(e.g., `alexander`, `amyra`, `aRonx`)
+
+🧠 `_` is a wildcard for **exactly one character**
