@@ -1,0 +1,72 @@
+# 🛠️ Installing MySQL and Creating Databases
+
+This guide explains how to install MySQL and create your first database using **MySQL Workbench** — perfect for beginners starting their SQL journey.
+
+📺 **Video Reference**: [Installing MySQL and Creating Databases](https://youtu.be/wgRwITQHszU?si=yAKSmqUfzax2oXGB)
+
+---
+
+## 📦 Step 1: Download MySQL Installer
+
+1. Visit the official MySQL download page:  
+   👉 https://dev.mysql.com/downloads/installer/
+
+2. Download the **MySQL Installer for Windows**:
+   - Select **Windows (x86, 32-bit), MSI Installer** (~400 MB)
+   - If prompted to log in or sign up, click **"No thanks, just start my download"**
+
+---
+
+## 💾 Step 2: Install MySQL
+
+1. Run the downloaded `.msi` file.
+2. Choose **Developer Default** to install:
+   - MySQL Server
+   - MySQL Workbench
+   - MySQL Shell
+   - Documentation and examples
+3. Click **Next** and install all required components.
+4. If prompted to install dependencies like Visual Studio Tools, proceed or skip as needed.
+5. Click **Execute** to complete the installation.
+
+---
+
+## 🔧 Step 3: Configure MySQL Server
+
+1. Select **Standalone MySQL Server** configuration.
+2. Set configuration type:
+   - **Development Computer**
+   - Port: `3306` (default)
+   - Protocol: `TCP/IP`
+3. Set the **root password** (IMPORTANT: remember this password).
+4. Optionally add a MySQL user or skip.
+5. Click **Execute** to apply the configuration.
+
+---
+
+## 🚀 Step 4: Open MySQL Workbench
+
+1. Open **MySQL Workbench** from the Start Menu or Desktop.
+2. Click on your **Local MySQL Server Instance**.
+3. Enter the **root password** you set during installation.
+4. You’re now connected to MySQL!
+
+---
+
+## 🧱 Step 5: Create a New Database (Schema)
+
+1. In MySQL Workbench, go to the **Navigator panel**.
+2. Right-click on **Schemas** and choose **Create Schema…**
+3. Enter a name for your new database (e.g., `studentDB`).
+4. Leave default collation settings and click **Apply**.
+5. Review the generated SQL statement and click **Apply** again.
+6. Click **Finish** — your database is now created!
+
+---
+
+## ✅ Step 6: Use the Database
+
+After creating the database, use the following SQL to start working with it:
+
+```sql
+USE studentDB;
